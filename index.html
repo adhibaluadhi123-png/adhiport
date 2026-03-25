@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Adith | Portfolio</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Outfit:wght@300;500;700&display=swap"
+    rel="stylesheet">
+</head>
+
+<body>
+  <div class="menu-toggle" id="menu-btn">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+
+  <div class="side-nav" id="side-nav">
+    <div class="close-btn" id="close-btn">&times;</div>
+    <div class="nav-links">
+      <a href="#" data-target="0">Home</a>
+      <a href="#" data-target="1">About</a>
+      <a href="#" data-target="2">Skills</a>
+      <a href="#" data-target="3">Experience</a>
+      <a href="#" data-target="4">Projects</a>
+      <a href="#" data-target="5">Education</a>
+      <a href="#" data-target="6">Contact</a>
+    </div>
+  </div>
+
+  <div id="prev-btn" class="nav-arrow left-arrow">&lt;</div>
+  <div id="next-btn" class="nav-arrow right-arrow">&gt;</div>
+
+  <section class="board"></section>
+
+  <div id="content-overlays">
+    <div class="content-section" id="section-1" style="display: none;">
+      <h2 class="graffiti-title">About Me</h2>
+      <div class="card-container">
+        <div class="graffiti-card">
+          <h3>Who am I?</h3>
+          <p>Cybersecurity-focused Computer Science student with hands-on experience in digital forensics, penetration
+            testing, and network analysis.</p>
+          <p>Skilled in identifying vulnerabilities, analyzing cyber threats, and securing systems using
+            industry-standard tools. Passionate about threat detection, incident response, and AI-driven security
+            solutions.</p>
+        </div>
+      </div>
+    </div>
+    <div class="content-section" id="section-2" style="display: none;">
+      <h2 class="graffiti-title">Skills</h2>
+      <div class="card-container">
+        <div class="graffiti-card skill-card">Cybersecurity & Forensics<br><span
+            style="font-size: 1rem; font-family: 'Outfit', sans-serif;">Wireshark, Nmap, Autopsy, FTK Imager,
+            Volatility, Burp Suite</span></div>
+        <div class="graffiti-card skill-card">Penetration Testing<br><span
+            style="font-size: 1rem; font-family: 'Outfit', sans-serif;">Metasploit, SQLMap, Hydra, Hashcat, John the
+            Ripper</span></div>
+        <div class="graffiti-card skill-card">Networking & Analysis<br><span
+            style="font-size: 1rem; font-family: 'Outfit', sans-serif;">Packet Tracer, IP Scanner, WPScan</span></div>
+        <div class="graffiti-card skill-card">Programming<br><span
+            style="font-size: 1rem; font-family: 'Outfit', sans-serif;">Python, SQL</span></div>
+        <div class="graffiti-card skill-card">Tools & Platforms<br><span
+            style="font-size: 1rem; font-family: 'Outfit', sans-serif;">Linux, GitHub, Docker, MySQL, Firebase</span>
+        </div>
+        <div class="graffiti-card skill-card">Soft Skills<br><span
+            style="font-size: 1rem; font-family: 'Outfit', sans-serif;">Problem Solving, Leadership, Team
+            Collaboration</span></div>
+      </div>
+    </div>
+    <div class="content-section" id="section-3" style="display: none;">
+      <h2 class="graffiti-title">Experience</h2>
+      <div class="card-container">
+        <div class="graffiti-card project-card">
+          <h3>Student Intern</h3>
+          <p><strong>Cyber Cell Police Station, Kottayam</strong><br>
+            • Investigated 10+ cybercrime cases, assisting in evidence collection and digital analysis.<br>
+            • Utilized Autopsy, FTK Imager, and Wireshark to extract and analyze forensic data.<br>
+            • Supported case documentation using police case management systems.<br>
+            • Identified suspicious digital activities and contributed to incident reporting.</p>
+        </div>
+      </div>
+    </div>
+    <div class="content-section" id="section-4" style="display: none;">
+      <h2 class="graffiti-title">Projects</h2>
+      <div class="card-container">
+        <div class="graffiti-card project-card">
+          <h3>Secure LLM Firewall (ReThink)</h3>
+          <p><strong>2025 | <a href="https://github.com/adhibaluadhi123-png/ai_firewall" target="_blank"
+                style="color: #ff007f;">GitHub Link</a></strong><br>
+            • Developed an AI-based firewall to detect and prevent prompt injection attacks in LLM systems.<br>
+            • Implemented input filtering and threat detection mechanisms to improve chatbot security.<br>
+            • Reduced malicious input risks by simulating real-world attack scenarios.<br>
+            • Integrated NLP-based analysis for identifying harmful intent in user prompts.</p>
+        </div>
+        <div class="graffiti-card project-card">
+          <h3>Pi-Guard: APT Detection</h3>
+          <p><strong>Jan 2025 – Jun 2026 | <a href="https://github.com/adhibaluadhi123-png/SentinelPi" target="_blank"
+                style="color: #ff007f;">GitHub Link</a></strong><br>
+            • Developed a Raspberry Pi–based real-time APT detection system.<br>
+            • Implemented malware detection using YARA and ClamAV.<br>
+            • Built Python-based automated threat response and alerting.<br>
+            • Created a React Native application for remote monitoring.</p>
+        </div>
+        <div class="graffiti-card project-card">
+          <h3>XSS Vulnerability Detection Tool</h3>
+          <p><strong>May 2023 – Jun 2023 | <a href="https://github.com/angelannajoseph/Xsscrossite" target="_blank"
+                style="color: #ff007f;">GitHub Link</a></strong><br>
+            • Built an automated Python tool to detect reflected, stored, and DOM-based XSS vulnerabilities.<br>
+            • Implemented payload injection, crawling, and response analysis.</p>
+        </div>
+      </div>
+    </div>
+    <div class="content-section" id="section-5" style="display: none;">
+      <h2 class="graffiti-title">Education & Certs</h2>
+      <div class="card-container">
+        <div class="graffiti-card project-card">
+          <h3>B.Tech in CSE (Cybersecurity)</h3>
+          <p><strong>SJCET, Palai | 2022 – 2026</strong><br>CGPA: 7.5</p>
+        </div>
+        <div class="graffiti-card project-card">
+          <h3>Certifications</h3>
+          <p>• Digital Forensics – Infosys Springboard (2025)<br>
+            • Cloud & DevOps – Red Hat Academy (2025)<br>
+            • Packet Tracer – Cisco Networking Academy (2024)<br>
+            • Network Analysis using Wireshark – Infosys Springboard (2024)<br>
+            • Ethical Hacking and Cyber Security Workshop – IEEE (2023)</p>
+        </div>
+      </div>
+    </div>
+    <div class="content-section" id="section-6" style="display: none;">
+      <h2 class="graffiti-title">Contact</h2>
+      <div class="card-container">
+        <div class="graffiti-card">
+          <h3>Hit Me Up.</h3>
+          <p>Let's build secure futures together.</p>
+          <div class="contact-links"
+            style="flex-direction: column; align-items: flex-start; gap: 0.5rem; margin-top: 1.5rem;">
+            <p style="margin-bottom: 0;"><strong>Adithya Biju</strong><br>Manarcad, Kottayam, Kerala</p>
+            <p style="margin-bottom: 0;"><strong>Phone:</strong> +91 9497374258</p>
+            <a href="mailto:adhibaluadhi123@gmail.com" style="margin-top: 0.5rem; font-size: 1rem;">Email:
+              adhibaluadhi123@gmail.com</a>
+            <a href="https://github.com/adhibaluadhi123-png" target="_blank" style="font-size: 1rem;">GitHub Profile</a>
+            <a href="https://linkedin.com/in/adithya-biju-53a96827b" target="_blank"
+              style="font-size: 1rem;">LinkedIn</a>
+            <a href="https://www.behance.net/adithyabiju02" target="_blank" style="font-size: 1rem;">Behance</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="blocks-container">
+    <div id="blocks"></div>
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="./script.js"></script>
+</body>
+
+</html>

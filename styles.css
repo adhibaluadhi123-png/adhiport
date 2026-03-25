@@ -1,0 +1,464 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  cursor: none;
+}
+
+.menu-toggle {
+  position: fixed;
+  top: 2rem;
+  right: 2rem;
+  width: 60px;
+  height: 50px;
+  background: #fff;
+  border: 4px solid #000;
+  box-shadow: 6px 6px 0px #000;
+  cursor: pointer;
+  z-index: 20;
+  transform: rotate(2deg);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  user-select: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 5px 0;
+}
+
+.menu-toggle span {
+  display: block;
+  width: 40px;
+  height: 5px;
+  background-color: #000;
+  border-radius: 2px;
+}
+
+.menu-toggle:hover {
+  transform: scale(1.1) rotate(0deg);
+  box-shadow: 8px 8px 0px #000;
+}
+
+.side-nav {
+  position: fixed;
+  top: 0;
+  right: -100vw;
+  width: 100vw;
+  height: 100vh;
+  background: #fff;
+  border-left: none;
+  z-index: 30;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transition: right 0.5s cubic-bezier(0.77, 0, 0.175, 1);
+}
+
+.side-nav.open {
+  right: 0;
+}
+
+.close-btn {
+  position: absolute;
+  top: 1rem;
+  right: 2rem;
+  font-family: "Permanent Marker", cursive;
+  font-size: 4rem;
+  color: #000;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.close-btn:hover {
+  transform: scale(1.2) rotate(10deg);
+  color: #ff007f;
+}
+
+.nav-links {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  width: 100%;
+}
+
+.nav-links a {
+  font-family: "Permanent Marker", cursive;
+  font-size: 2.5rem;
+  color: #000;
+  text-decoration: none;
+  text-transform: uppercase;
+  background: #fff;
+  border: 4px solid #000;
+  padding: 0.5rem 2rem;
+  text-align: center;
+  box-shadow: 6px 6px 0px #000;
+  transform: rotate(-2deg);
+  transition: all 0.2s ease;
+  width: auto;
+  min-width: 250px;
+}
+
+.nav-links a:nth-child(even) {
+  transform: rotate(2deg);
+}
+
+.nav-links a:hover {
+  transform: scale(1.1) rotate(0deg);
+  box-shadow: 10px 10px 0px #000;
+  background: #ffff00;
+}
+
+.nav-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-family: "Permanent Marker", cursive;
+  font-size: 5rem;
+  color: #fff;
+  text-shadow: 6px 6px 0px #000;
+  z-index: 10;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  pointer-events: all;
+  user-select: none;
+}
+
+.nav-arrow:hover {
+  transform: translateY(-50%) scale(1.2) rotate(10deg);
+  color: #ffff00;
+}
+
+.left-arrow {
+  left: 30px;
+}
+
+.right-arrow {
+  right: 30px;
+}
+
+.board {
+  width: 100vw;
+  height: 100vh;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  perspective: 1000px;
+  background-color: #000;
+  position: relative;
+  z-index: 1;
+}
+
+.row {
+  flex: 1;
+  display: flex;
+  gap: 0;
+}
+
+.tile {
+  flex: 1;
+  position: relative;
+  transform-style: preserve-3d;
+}
+
+.tile-face {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 0;
+  overflow: hidden;
+  border: 1px solid rgba(0, 0, 0, 0.4);
+}
+
+.tile-front::before,
+.tile-back::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-size: 600% 600%;
+  background-position: inherit;
+  z-index: -1;
+}
+
+.tile-content {
+  position: absolute;
+  width: 600%;
+  height: 600%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-family: "Permanent Marker", cursive;
+  pointer-events: none;
+}
+
+.brand-logo {
+  position: absolute;
+  top: 2rem;
+  left: 3rem;
+  font-size: 42px;
+  transform: rotate(-3deg);
+  color: #000;
+  text-shadow: 2px 2px 0px #fff, -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff, 1px 1px 0 #fff;
+  letter-spacing: 2px;
+  z-index: 10;
+}
+
+.content-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.section-title {
+  font-size: 6rem;
+  margin-bottom: 0.5rem;
+  line-height: 1.1;
+  text-transform: uppercase;
+  color: #fff;
+  text-shadow: 6px 6px 0px #000, -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 2px 2px 0 #000;
+  transform: rotate(-3deg);
+  letter-spacing: 2px;
+}
+
+.section-subtitle {
+  font-size: 1.8rem;
+  color: #fff;
+  background-color: transparent;
+  padding: 0;
+  transform: rotate(2deg);
+  box-shadow: none;
+  border: none;
+  text-shadow: 4px 4px 0px #000, -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 2px 2px 0 #000;
+  max-width: 80%;
+  white-space: pre-line;
+  line-height: 1.4;
+}
+
+.tile-front {
+  background-color: transparent;
+}
+
+.tile-back {
+  background-color: transparent;
+  transform: rotateX(180deg);
+}
+
+.tile-front::before,
+.tile-back::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-size: 600% 600%;
+  background-position: inherit;
+  z-index: -1;
+}
+
+.tile-front::before {
+  background: var(--front-bg, #ff007f);
+}
+
+.tile-back::before {
+  background: var(--back-bg, #ff007f);
+}
+
+.border-container {
+  display: none;
+}
+
+.blocks-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 2;
+}
+
+#blocks {
+  width: 105vw;
+  height: 100vh;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-content: flex-start;
+  overflow: hidden;
+}
+
+.block {
+  width: 50px;
+  height: 50px;
+  border: 0.5px solid transparent;
+  transition: border-color 0.3s ease;
+}
+
+.highlight {
+  border-color: #fff;
+}
+
+.graffiti-cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 40px;
+  height: 40px;
+  border: 6px solid #fff;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 99999;
+  transform: translate(-50%, -50%);
+  transition: width 0.1s, height 0.1s;
+  box-shadow: 4px 4px 0px #000;
+  mix-blend-mode: normal;
+}
+
+.graffiti-cursor.hover {
+  width: 60px;
+  height: 60px;
+  border-color: #ff007f;
+  background-color: transparent;
+}
+
+#content-overlays {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  perspective: 1000px;
+}
+
+.content-section {
+  width: 80%;
+  max-width: 1000px;
+  height: 70%;
+  pointer-events: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  position: absolute;
+  transform-style: preserve-3d;
+}
+
+.content-section.active {
+  opacity: 1;
+  z-index: 6;
+}
+
+.graffiti-title {
+  font-family: "Permanent Marker", cursive;
+  font-size: 4rem;
+  color: #fff;
+  text-shadow: 6px 6px 0px #000, -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 2px 2px 0 #000;
+  transform: rotate(-2deg);
+  margin-bottom: 2rem;
+  letter-spacing: 2px;
+}
+
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  justify-content: center;
+}
+
+.graffiti-card {
+  background: #fff;
+  border: 4px solid #000;
+  padding: 1.5rem;
+  box-shadow: 8px 8px 0px #000;
+  font-family: "Outfit", sans-serif;
+  color: #000;
+  transform: rotate(1deg);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  max-width: 400px;
+  cursor: pointer;
+}
+
+.graffiti-card:nth-child(even) {
+  transform: rotate(-1.5deg);
+}
+
+.graffiti-card:hover {
+  transform: scale(1.05) rotate(0deg);
+  box-shadow: 12px 12px 0px #000;
+}
+
+.graffiti-card h3 {
+  font-family: "Permanent Marker", cursive;
+  font-size: 1.8rem;
+  margin-bottom: 0.8rem;
+  text-transform: uppercase;
+}
+
+.graffiti-card p {
+  font-size: 1.1rem;
+  line-height: 1.4;
+  margin-bottom: 0.5rem;
+}
+
+.skill-card {
+  font-family: "Permanent Marker", cursive;
+  font-size: 1.5rem;
+  padding: 1rem 2rem;
+}
+
+.project-card h3 {
+  font-size: 1.5rem;
+}
+
+.project-card p {
+  text-align: left;
+  font-size: 1rem;
+}
+
+.contact-links {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.contact-links a {
+  font-family: "Permanent Marker", cursive;
+  color: #000;
+  text-decoration: none;
+  border-bottom: 2px dashed #000;
+  font-size: 1.2rem;
+  transition: color 0.2s;
+  text-transform: uppercase;
+  text-shadow: none;
+}
+
+.contact-links a:hover {
+  color: #ff007f;
+  transform: none;
+}
+
+

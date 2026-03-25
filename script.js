@@ -310,6 +310,46 @@ function init() {
       jumpToSection(targetIndex);
     });
   });
+
+  // Mobile Swipe Navigation
+  let touchStartY = 0;
+  let touchEndY = 0;
+
+  document.addEventListener('touchstart', e => {
+    touchStartY = e.changedTouches[0].screenY;
+  }, { passive: true });
+
+  document.addEventListener('touchend', e => {
+    touchEndY = e.changedTouches[0].screenY;
+    handleSwipe(e);
+  }, { passive: true });
+
+  function handleSwipe(e) {
+    if (isAnimating) return;
+    const threshold = 50; 
+    const swipeDistance = touchStartY - touchEndY; // Positive means swipe UP (Next)
+
+    if (Math.abs(swipeDistance) < threshold) return; // Ignore small or horizontal swipes
+
+    const scrollable = e.target.closest('.content-section');
+    if (scrollable) {
+      if (swipeDistance > threshold) {
+        // Swiping UP -> Check if at bottom of scrollable content
+        const atBottom = Math.ceil(scrollable.scrollTop + scrollable.clientHeight) >= scrollable.scrollHeight - 1;
+        if (!atBottom) return; // Let user scroll naturally
+      } else if (swipeDistance < -threshold) {
+        // Swiping DOWN -> Check if at top
+        const atTop = scrollable.scrollTop <= 0;
+        if (!atTop) return; // Let user scroll naturally
+      }
+    }
+
+    if (swipeDistance > threshold) {
+      flipAllTiles(1); // Swipe UP -> Next
+    } else if (swipeDistance < -threshold) {
+      flipAllTiles(-1); // Swipe DOWN -> Prev 
+    }
+  }
 }
 
 document.addEventListener("DOMContentLoaded", () => {
